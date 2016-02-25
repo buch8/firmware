@@ -127,8 +127,9 @@ firmwares: stamp-clean-firmwares .stamp-firmwares
 	      PACKAGES_SUFFIXED="$${PACKAGES_FILE}_$${SUFFIX}"; \
 	      if [[ -f "$$PACKAGES_PATH/$$PACKAGES_SUFFIXED.txt" ]]; then \
 	        PACKAGES_FILE="$$PACKAGES_SUFFIXED"; \
-	        PROFILE=$$(echo $$PROFILE | cut -d':' -f 1); \
 	      fi; \
+	      # this always retuns the OpenWRT profilename (no matter if with or w/o :4MB) \
+	      PROFILE=$$(echo $$PROFILE | cut -d':' -f 1); \
 	    fi; \
 	    if [[ -f "$$PACKAGES_PATH/$$PACKAGES_FILE.sh" ]]; then \
 	      CUSTOM_POSTINST_PARAM="CUSTOM_POSTINST_SCRIPT=$$PACKAGES_PATH/$$PACKAGES_FILE.sh"; \
