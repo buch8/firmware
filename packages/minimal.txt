@@ -1,0 +1,18 @@
+-ppp
+-ppp-mod-pppoe
+-wpad-mini
+wpad
+
+# Defaults
+freifunk-berlin-dhcp-defaults
+freifunk-berlin-freifunk-defaults
+freifunk-berlin-network-defaults
+
+# Common
+dnsmasq
+
+# Utils
+ip
+
+# IPv6
+kmod-ipv6
