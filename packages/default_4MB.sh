@@ -8,3 +8,4 @@ echo "Deleting OLSR i18n files..."
 rm -vf usr/lib/lua/luci/i18n/olsr.*
 echo "deleting opkg status-files ..."
 rm -rf usr/lib/opkg
+rm -rf etc/opkg/
