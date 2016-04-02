@@ -8,7 +8,7 @@ echo "Deleting OLSR i18n files..."
 rm -vf usr/lib/lua/luci/i18n/olsr.*
 echo "deleting opkg status-files ..."
 rm -rf usr/lib/opkg
-rm -rf etc/opkg
+rm -rf etc/opkg*
 # as this will be included into image for some reason, even it's
 # not listed for inclusion
 echo "manually removing usign ..."
