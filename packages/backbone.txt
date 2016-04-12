@@ -24,7 +24,6 @@ vnstat
 ethtool
 iwinfo
 libiwinfo-lua
-netcat
 iputils-tracepath
 iputils-tracepath6
 
