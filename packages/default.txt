@@ -26,7 +26,6 @@ qos-scripts
 firewall
 iwinfo
 libiwinfo-lua
-netcat
 iputils-tracepath
 iputils-tracepath6
 
