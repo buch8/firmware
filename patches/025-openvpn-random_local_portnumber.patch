@@ -1,0 +1,18 @@
+--- /dev/null
++++ b/package/network/services/openvpn/patches/900-openvpn_add-localport-random.patch
+@@ -0,0 +1,15 @@
++diff -ru openvpn-polarssl/openvpn-2.3.6/src/openvpn/options.c openvpn-polarssl_lport-rnd/openvpn-2.3.6/src/openvpn/options.c
++--- openvpn-polarssl/openvpn-2.3.6/src/openvpn/options.c	2016-04-15 01:42:03.881338778 +0200
+++++ openvpn-polarssl_lport-rnd/openvpn-2.3.6/src/openvpn/options.c	2016-04-15 01:37:18.000000000 +0200
++@@ -4979,6 +4979,11 @@
++ 
++       VERIFY_PERMISSION (OPT_P_GENERAL|OPT_P_CONNECTION);
++       port = atoi (p[1]);
+++      if (port == 0)
+++        {
+++          msg (msglevel, "random local port requested");
+++          port = rand() % 49152-65535 + 49152;  # port per https://tools.ietf.org/html/rfc6335#section-6
+++        }
++       if ((port != 0) && !legal_ipv4_port (port))
++ 	{
++ 	  msg (msglevel, "Bad local port number: %s", p[1]);
