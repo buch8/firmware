@@ -10,7 +10,7 @@
 +       port = atoi (p[1]);
 ++      if (port == 0)
 ++        {
-++          msg (msglevel, "random local port requested");
+++          msg (M_INFO, "random local port requested");
 ++          port = rand() % 49152-65535 + 49152;  // port per https://tools.ietf.org/html/rfc6335#section-6
 ++        }
 +       if ((port != 0) && !legal_ipv4_port (port))
