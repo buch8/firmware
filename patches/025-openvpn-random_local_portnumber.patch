@@ -4,7 +4,7 @@
 +diff -ru openvpn-2.3.6/src/openvpn/options.c openvpn-2.3.6-l/src/openvpn/options.c
 +--- openvpn-2.3.6/src/openvpn/options.c	2016-04-15 01:42:03.881338778 +0200
 ++++ openvpn-2.3.6-l/src/openvpn/options.c	2016-04-15 01:37:18.000000000 +0200
-+@@ -4979,6 +4979,11 @@
++@@ -4979,6 +4979,12 @@
 + 
 +       VERIFY_PERMISSION (OPT_P_GENERAL|OPT_P_CONNECTION);
 +       port = atoi (p[1]);
@@ -12,6 +12,7 @@
 ++        {
 ++          msg (M_INFO, "random local port requested");
 ++          port = rand() % 49152-65535 + 49152;  // port per https://tools.ietf.org/html/rfc6335#section-6
+++          msg (M_INFO, "random local port %d assigned", port);
 ++        }
 +       if ((port != 0) && !legal_ipv4_port (port))
 + 	{
